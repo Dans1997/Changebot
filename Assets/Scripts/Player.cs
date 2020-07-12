@@ -5,14 +5,16 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [Header("Player Movement")]
     [SerializeField] float moveSpeed = 5f;
+
+    [Header("Player Jump")]
     [SerializeField] float jumpForce = 5f;
     [SerializeField] int maxExtraJumps = 2;
     [SerializeField] float maxJumpTime = 1f;
-
-    [SerializeField] Transform groundCheck;
+    [SerializeField] Transform groundCheck = null;
     [SerializeField] float groundCheckRadius = 0f;
-    [SerializeField] LayerMask whatIsGround;
+    [SerializeField] LayerMask whatIsGround = 0;
 
     bool isGrounded = true;
     bool isJumping = false;
@@ -21,11 +23,15 @@ public class Player : MonoBehaviour
     float moveInput = 0f;
     float jumpTimeCounter;
 
+    // Cached components
+    Rigidbody2D rigidBody = null;
+
     // Start is called before the first frame update
     void Start()
     {
         extraJumps = maxExtraJumps;
         jumpTimeCounter = maxJumpTime;
+        rigidBody = GetComponent<Rigidbody2D>();
     }
 
     // Physics Related Update
@@ -50,7 +56,7 @@ public class Player : MonoBehaviour
     {
         moveInput = Input.GetAxisRaw("Horizontal");
         float speedX = moveInput * moveSpeed * Time.deltaTime;
-        GetComponent<Rigidbody2D>().velocity = new Vector2(speedX, GetComponent<Rigidbody2D>().velocity.y);
+        rigidBody.velocity = new Vector2(speedX, rigidBody.velocity.y);
     }
 
     private void HandleJump()
@@ -63,14 +69,14 @@ public class Player : MonoBehaviour
         {
             isJumping = true;
             jumpTimeCounter = maxJumpTime;
-            GetComponent<Rigidbody2D>().velocity = jumpVector;
+            rigidBody.velocity = jumpVector;
             extraJumps--;
         } 
         else if (Input.GetKeyDown(KeyCode.Space) && extraJumps == 0 && isGrounded)
         {
             isJumping = false;
             jumpTimeCounter = maxJumpTime;
-            GetComponent<Rigidbody2D>().velocity = jumpVector;
+            rigidBody.velocity = jumpVector;
         }
 
         // Holding Down Space
@@ -78,7 +84,7 @@ public class Player : MonoBehaviour
         {
             if(jumpTimeCounter > 0 && isJumping)
             {
-                GetComponent<Rigidbody2D>().velocity = jumpVector;
+                rigidBody.velocity = jumpVector;
                 jumpTimeCounter -= Time.deltaTime;
             }
             else
