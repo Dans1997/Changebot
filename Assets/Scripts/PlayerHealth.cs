@@ -47,6 +47,7 @@ public class PlayerHealth : MonoBehaviour
         if (hitsTaken < maxHits) return;
         // Death
         Debug.Log("Player is dead");
+        FindObjectOfType<SceneLoader>().LoadGameOverScreen();
         canvasHearts.sprite = hearts[hearts.Length - 1];
     }
 }
