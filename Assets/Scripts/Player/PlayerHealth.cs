@@ -21,7 +21,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Player Collided with " + collision.gameObject.name);
+        //Debug.Log("Player Collided with " + collision.gameObject.name);
 
         if(collision.gameObject.GetComponent<Enemy>())
         {

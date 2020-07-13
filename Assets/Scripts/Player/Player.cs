@@ -16,8 +16,10 @@ public class Player : MonoBehaviour
     [SerializeField] float groundCheckRadius = 0f;
     [SerializeField] LayerMask whatIsGround = 0;
 
+    bool isFacingRight = true;
     bool isGrounded = true;
     bool isJumping = false;
+    bool isWalking = false;
 
     int extraJumps;
     float moveInput = 0f;
@@ -25,6 +27,8 @@ public class Player : MonoBehaviour
 
     // Cached components
     Rigidbody2D rigidBody = null;
+    Animator animator = null;
+    SpriteRenderer spriteRenderer = null;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +36,8 @@ public class Player : MonoBehaviour
         extraJumps = maxExtraJumps;
         jumpTimeCounter = maxJumpTime;
         rigidBody = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Physics Related Update
@@ -39,6 +45,8 @@ public class Player : MonoBehaviour
     {
         GroundCheck();
         MovePlayer();
+
+        animator.SetBool("isWalking", isWalking);
     }
 
     // Update is called once per frame
@@ -55,8 +63,18 @@ public class Player : MonoBehaviour
     private void MovePlayer()
     {
         moveInput = Input.GetAxisRaw("Horizontal");
-        float speedX = moveInput * moveSpeed * Time.deltaTime;
-        rigidBody.velocity = new Vector2(speedX, rigidBody.velocity.y);
+        isWalking = !(Mathf.Abs(moveInput) <= Mathf.Epsilon);
+
+        HandleSpriteFlip();
+        rigidBody.velocity = new Vector2(moveInput * moveSpeed * Time.deltaTime, rigidBody.velocity.y);
+    }
+
+    private void HandleSpriteFlip()
+    {
+        if (isFacingRight && moveInput < 0) isFacingRight = false;
+        else if (!isFacingRight && moveInput > 0) isFacingRight = true;
+
+        spriteRenderer.flipX = !isFacingRight;
     }
 
     private void HandleJump()
