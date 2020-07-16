@@ -6,10 +6,10 @@ using UnityEngine.UI;
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] int maxHits = 3;
-    [SerializeField] Sprite[] hearts;
+    [SerializeField] Sprite[] hearts = null;
 
     [Header("Canvas Instance")]
-    [SerializeField] Image canvasHearts;
+    [SerializeField] Image canvasHearts = null;
 
     int hitsTaken = 0;
 
