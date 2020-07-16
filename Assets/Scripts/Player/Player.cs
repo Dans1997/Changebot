@@ -112,5 +112,6 @@ public class Player : MonoBehaviour
         }
 
         if (Input.GetKeyUp(KeyCode.Space)) isJumping = false;
+        animator.SetBool("isJumping", !isGrounded);
     }
 }
