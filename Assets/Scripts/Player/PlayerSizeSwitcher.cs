@@ -4,54 +4,40 @@ using UnityEngine;
 
 public class PlayerSizeSwitcher : MonoBehaviour
 {
-    enum Size { Tiny = 0, Normal, Big };
+    enum Size { Tiny = 0, Normal, Big, Count };
+    Size previousSize = Size.Tiny;
+    Size currentSize = Size.Tiny;
 
-    [SerializeField] Size previousSize = Size.Normal;
-    [SerializeField] Size currentSize = Size.Normal;
+    [Header("Enable Size Randomizer")]
+    [Tooltip("If true, player will change sizes according to variables below")]
+    [SerializeField]  bool isRandomizerEnabled = false;
+    [SerializeField] float randomizeMaxTime = 6f;
+    float randomizeCounter = 0f;
 
     // Start is called before the first frame update
     void Start()
     {
-        ChangePlayerSize();
+        ChangePlayerSize(Size.Normal);
     }
 
     // Update is called once per frame
     void Update()
     {
-        ProcessKeyInput();
+        HandleKeyInput();
+        HandleSizeRandomizer();
     }
 
-    private void ProcessKeyInput()
+    private void ChangePlayerSize(Size newSize)
     {
-        // Control Powers Are Controlled By Keys (FOR NOW)
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            if (currentSize.Equals(Size.Tiny)) return;
-            previousSize = currentSize;
-            currentSize = Size.Tiny;
-        }
-        else if (Input.GetKeyDown(KeyCode.Y))
-        {
-            if (currentSize.Equals(Size.Normal)) return;
-            previousSize = currentSize;
-            currentSize = Size.Normal;
-        }
-        else if (Input.GetKeyDown(KeyCode.U))
-        {
-            if (currentSize.Equals(Size.Big)) return;
-            previousSize = currentSize;
-            currentSize = Size.Big;
-        }
-        else return;
-        ChangePlayerSize();
-    }
+        if (currentSize.Equals(newSize)) return;
+        previousSize = currentSize;
+        currentSize = newSize;
 
-    private void ChangePlayerSize()
-    {
-        int playerIndex = 0; 
+        int playerIndex = 0;
         Vector2 lastPlayerPosition = transform.position;
         Transform playerToBeActivated = null;
 
+        // Iterate through all child objects
         foreach (Transform player in transform)
         {
             player.gameObject.SetActive(false);
@@ -66,4 +52,33 @@ public class PlayerSizeSwitcher : MonoBehaviour
             playerToBeActivated.transform.position = lastPlayerPosition;
         }
     }
+
+    // Control Powers Are Controlled By Keys (FOR NOW)
+    private void HandleKeyInput()
+    {
+        if (Input.GetKeyDown(KeyCode.T)) ChangePlayerSize(Size.Tiny);
+
+        else if (Input.GetKeyDown(KeyCode.Y)) ChangePlayerSize(Size.Normal);
+
+        else if (Input.GetKeyDown(KeyCode.U)) ChangePlayerSize(Size.Big);
+    }
+
+    private void HandleSizeRandomizer()
+    {
+        if (!isRandomizerEnabled) return;
+
+        randomizeCounter += Time.deltaTime;
+       
+        if(randomizeCounter >= randomizeMaxTime)
+        {
+            randomizeCounter = 0f;
+            Size randomSize = currentSize;
+
+            do randomSize = (Size) Random.Range(0, (int) Size.Count);
+            while (randomSize == currentSize);
+
+            ChangePlayerSize(randomSize);
+        }
+    }
+
 }
