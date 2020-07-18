@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 949725279948079122}
   - component: {fileID: 40074681086401221}
-  m_Layer: 8
-  m_Name: Level Palette
+  m_Layer: 31
+  m_Name: Ground Palette
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 6953650746413434916}
   - component: {fileID: 399600660976395717}
   - component: {fileID: 8882240007918920222}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Layer1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -266,7 +266,7 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
---- !u!114 &9219590020701573337
+--- !u!114 &4632208214931489770
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
