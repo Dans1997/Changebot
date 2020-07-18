@@ -13,12 +13,12 @@ public class PlayerSizeSwitcher : MonoBehaviour
     [SerializeField]  bool isRandomizerEnabled = false;
     [SerializeField] float randomizeMaxTime = 6f;
     float randomizeCounter = 0f;
-    Camera mainCamera = null;
+
+    [SerializeField] CameraFollow cameraFollow;
 
     // Start is called before the first frame update
     void Start()
     {
-        mainCamera = FindObjectOfType<Camera>();
         ChangePlayerSize(Size.Normal);
     }
 
@@ -53,7 +53,7 @@ public class PlayerSizeSwitcher : MonoBehaviour
             Enemy.player = playerToBeActivated;
             playerToBeActivated.gameObject.SetActive(true);
             playerToBeActivated.transform.position = lastPlayerPosition;
-            mainCamera.transform.parent = playerToBeActivated;
+            cameraFollow.SetFollowObject(playerToBeActivated.gameObject);
         }
     }
 

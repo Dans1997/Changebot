@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
 	[SerializeField] float range;
 	[SerializeField] float moveSpeed;
 	Rigidbody2D rb;
+
     // Start is called before the first frame update
     void Start()
     {
