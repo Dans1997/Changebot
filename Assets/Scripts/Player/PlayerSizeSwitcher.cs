@@ -45,9 +45,10 @@ public class PlayerSizeSwitcher : MonoBehaviour
             if ((int)currentSize == playerIndex) playerToBeActivated = player;
             playerIndex++;
         }
-
+        
         if (playerToBeActivated)
         {
+            Enemy.player = playerToBeActivated;
             playerToBeActivated.gameObject.SetActive(true);
             playerToBeActivated.transform.position = lastPlayerPosition;
         }
