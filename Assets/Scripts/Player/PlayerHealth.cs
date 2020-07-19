@@ -8,8 +8,14 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] int maxHits = 3;
     [SerializeField] Sprite[] hearts = null;
 
-    [Header("Canvas Instance")]
+    [Header("Health Canvas Instance")]
     [SerializeField] Image canvasHearts = null;
+
+    [Header("Game Over Canvas Instance")]
+    [SerializeField] Canvas gameOverCanvas;
+
+    [Header("SFXs")]
+    [SerializeField] AudioClip damageSFX;
 
     int hitsTaken = 0;
 
@@ -17,6 +23,7 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         HandleHealthUI();
+        gameOverCanvas.enabled = false;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -34,6 +41,7 @@ public class PlayerHealth : MonoBehaviour
         hitsTaken++;
         HandleHealthUI();
         HandleDeath();
+        GetComponent<Player>().PlaySFX(damageSFX);
     }
 
     private void HandleHealthUI()
@@ -46,8 +54,10 @@ public class PlayerHealth : MonoBehaviour
     {
         if (hitsTaken < maxHits) return;
         // Death
-        Debug.Log("Player is dead");
-        FindObjectOfType<SceneLoader>().LoadGameOverScreen();
+        gameOverCanvas.enabled = true;
+        GetComponent<Player>().enabled = false;
+        FindObjectOfType<MusicPlayer>().ChangeToLoseMusic();
         canvasHearts.sprite = hearts[hearts.Length - 1];
     }
+
 }

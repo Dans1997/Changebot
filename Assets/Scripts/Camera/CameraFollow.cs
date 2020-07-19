@@ -36,7 +36,6 @@ public class CameraFollow : MonoBehaviour
         float moveSpeed = followObjectBody.velocity.magnitude > defaultFollowSpeed ? followObjectBody.velocity.magnitude : defaultFollowSpeed;
 
         transform.position = Vector3.MoveTowards(transform.position, newCameraPosition, defaultFollowSpeed * Time.deltaTime);
-        Debug.Log("Move Towards: " + newCameraPosition);
     }
 
     public void SetFollowObject(GameObject newfollowObject) { followObject = newfollowObject; }

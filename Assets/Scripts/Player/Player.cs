@@ -16,6 +16,10 @@ public class Player : MonoBehaviour
     [SerializeField] float groundCheckRadius = 0f;
     [SerializeField] LayerMask whatIsGround = 0;
 
+    [Header("Player SFXs")]
+    [SerializeField] AudioClip jumpSFX;
+
+    // Player State
     bool isFacingRight = true;
     bool isGrounded = true;
     bool isJumping = false;
@@ -29,6 +33,7 @@ public class Player : MonoBehaviour
     Rigidbody2D rigidBody = null;
     Animator animator = null;
     SpriteRenderer spriteRenderer = null;
+    AudioSource audioSource = null;
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +43,7 @@ public class Player : MonoBehaviour
         rigidBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Physics Related Update
@@ -81,20 +87,20 @@ public class Player : MonoBehaviour
     {
         if (isGrounded) extraJumps = maxExtraJumps;
 
-        Vector2 jumpVector = jumpForce * Vector2.up;
-
         if (Input.GetKeyDown(KeyCode.Space) && extraJumps > 0)
         {
             isJumping = true;
             jumpTimeCounter = maxJumpTime;
-            rigidBody.velocity = jumpVector;
+            Jump();
+            PlaySFX(jumpSFX);
             extraJumps--;
         } 
         else if (Input.GetKeyDown(KeyCode.Space) && extraJumps == 0 && isGrounded)
         {
             isJumping = false;
             jumpTimeCounter = maxJumpTime;
-            rigidBody.velocity = jumpVector;
+            Jump();
+            PlaySFX(jumpSFX);
         }
 
         // Holding Down Space
@@ -102,7 +108,7 @@ public class Player : MonoBehaviour
         {
             if(jumpTimeCounter > 0 && isJumping)
             {
-                rigidBody.velocity = jumpVector;
+                Jump();
                 jumpTimeCounter -= Time.deltaTime;
             }
             else
@@ -114,4 +120,12 @@ public class Player : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Space)) isJumping = false;
         animator.SetBool("isJumping", !isGrounded);
     }
+
+    private void Jump()
+    {
+        Vector2 jumpVector = jumpForce * Vector2.up;
+        rigidBody.velocity = jumpVector;
+    }
+
+    public void PlaySFX(AudioClip sfx) { if(sfx) audioSource.PlayOneShot(sfx); }
 }
