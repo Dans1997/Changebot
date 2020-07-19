@@ -30,7 +30,7 @@ public class PlayerHealth : MonoBehaviour
     {
         //Debug.Log("Player Collided with " + collision.gameObject.name);
 
-        if(collision.gameObject.GetComponent<Enemy>())
+        if(collision.gameObject.GetComponent<EnemyAI>())
         {
             TakeHit();
         }

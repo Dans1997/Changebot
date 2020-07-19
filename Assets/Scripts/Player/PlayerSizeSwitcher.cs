@@ -50,7 +50,7 @@ public class PlayerSizeSwitcher : MonoBehaviour
         
         if (playerToBeActivated)
         {
-            Enemy.player = playerToBeActivated;
+            EnemyAI.player = playerToBeActivated;
             playerToBeActivated.gameObject.SetActive(true);
             playerToBeActivated.transform.position = lastPlayerPosition;
             cameraFollow.SetFollowObject(playerToBeActivated.gameObject);
