@@ -7,6 +7,7 @@ public class MusicPlayer : MonoBehaviour
     [Header("Music")]
     [SerializeField] AudioClip levelMusic;
     [SerializeField] AudioClip loseMusic;
+    [SerializeField] AudioClip winMusic;
 
     // Cached Components
     AudioSource audioSource;
@@ -21,6 +22,11 @@ public class MusicPlayer : MonoBehaviour
     public void ChangeToLoseMusic()
     {
         ChangeMusic(loseMusic);
+    }
+
+    public void ChangeToWinMusic()
+    {
+        ChangeMusic(winMusic);
     }
 
     private void ChangeMusic(AudioClip newClip)
