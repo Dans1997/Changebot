@@ -578,7 +578,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ef78d4979b6b5d4a8118258bb07e75a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 2.39
+  range: 5
   moveSpeed: 2
   engageSFX: {fileID: 8300000, guid: 2bb4de8a2b89c2749b19691c50be6070, type: 3}
   disEngageSFX: {fileID: 8300000, guid: de05219f58cee08418c7875b4cb7eb6c, type: 3}
@@ -4569,6 +4569,11 @@ PrefabInstance:
       propertyPath: camera
       value: 
       objectReference: {fileID: 1344840095}
+    - target: {fileID: 2307300178475809085, guid: f054294011f3d6f4788eb79f66a46e08,
+        type: 3}
+      propertyPath: parallaxStrength
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 2307300178910276064, guid: f054294011f3d6f4788eb79f66a46e08,
         type: 3}
       propertyPath: m_Name
@@ -4639,6 +4644,11 @@ PrefabInstance:
       propertyPath: camera
       value: 
       objectReference: {fileID: 1344840095}
+    - target: {fileID: 2307300179904073796, guid: f054294011f3d6f4788eb79f66a46e08,
+        type: 3}
+      propertyPath: parallaxStrength
+      value: 0.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f054294011f3d6f4788eb79f66a46e08, type: 3}
 --- !u!1001 &3780461206124560764
