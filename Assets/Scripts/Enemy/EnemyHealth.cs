@@ -23,11 +23,13 @@ public class EnemyHealth : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.gameObject.GetComponent<PlayerHealth>())
+        PlayerHealth playerHealth= other.gameObject.GetComponent<PlayerHealth>();
+        if (playerHealth)
         {
             hitsTaken++;
+            playerHealth.TakeHit();
             HandleDeath();
         }
     }
@@ -36,6 +38,7 @@ public class EnemyHealth : MonoBehaviour
     {
         if (hitsTaken < maxHits) return;
         GetComponent<Animator>().SetTrigger("deathTrigger");
+        GetComponent<BoxCollider2D>().enabled = false;
         Destroy(gameObject, 0.5f);
     }
 }
