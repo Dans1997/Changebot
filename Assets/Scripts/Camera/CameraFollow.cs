@@ -33,7 +33,8 @@ public class CameraFollow : MonoBehaviour
         if (Mathf.Abs(yDiff) >= threshold.y) newCameraPosition.y = followPos.y;
 
         // Outputs the highest speed
-        float moveSpeed = followObjectBody.velocity.magnitude > defaultFollowSpeed ? followObjectBody.velocity.magnitude : defaultFollowSpeed;
+        float followObjXSpeed = Mathf.Abs(followObjectBody.velocity.x);
+        float moveSpeed = followObjXSpeed > defaultFollowSpeed ? followObjXSpeed : defaultFollowSpeed;
 
         transform.position = Vector3.MoveTowards(transform.position, newCameraPosition, moveSpeed * Time.deltaTime);
     }
