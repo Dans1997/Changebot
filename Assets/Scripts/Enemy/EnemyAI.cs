@@ -52,8 +52,8 @@ public class EnemyAI : MonoBehaviour
         if(animator) animator.SetBool("isChasing", isChasing);
 
         // Handle SFXs
-        if (isChasing && !previousIsChasing) audioSource.PlayOneShot(engageSFX);
-        else if (!isChasing && previousIsChasing) audioSource.PlayOneShot(disEngageSFX);
+        if (isChasing && !previousIsChasing) if(engageSFX) audioSource.PlayOneShot(engageSFX);
+        else if (!isChasing && previousIsChasing) if (disEngageSFX) audioSource.PlayOneShot(disEngageSFX);
     }
 
     private void FollowPlayer()
