@@ -25,16 +25,14 @@ public class EnemyAI : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+    {  
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         audioSource = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
         bool previousIsChasing = isChasing;
@@ -68,6 +66,7 @@ public class EnemyAI : MonoBehaviour
 
     private void StopFollowingPlayer()
     {
+        if (!isChasing) return;
         isChasing = false;
         rb.velocity = new Vector2(0,0);
     }

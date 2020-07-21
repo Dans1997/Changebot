@@ -6,7 +6,7 @@ using UnityEngine.U2D;
 public class CameraFollow : MonoBehaviour
 {
     [SerializeField] Vector2 followOffset;
-    [SerializeField] float defaultFollowSpeed = 5f;
+    [SerializeField] float defaultFollowSpeed = 2.5f;
 
     Vector2 threshold;
     Rigidbody2D followObjectBody = null;
@@ -35,10 +35,14 @@ public class CameraFollow : MonoBehaviour
         // Outputs the highest speed
         float moveSpeed = followObjectBody.velocity.magnitude > defaultFollowSpeed ? followObjectBody.velocity.magnitude : defaultFollowSpeed;
 
-        transform.position = Vector3.MoveTowards(transform.position, newCameraPosition, defaultFollowSpeed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, newCameraPosition, moveSpeed * Time.deltaTime);
     }
 
-    public void SetFollowObject(GameObject newfollowObject) { followObject = newfollowObject; }
+    public void SetFollowObject(GameObject newfollowObject) 
+    { 
+        followObject = newfollowObject;
+        followObjectBody = newfollowObject.GetComponent<Rigidbody2D>(); 
+    }
 
     private Vector3 CalculateThreshold()
     {

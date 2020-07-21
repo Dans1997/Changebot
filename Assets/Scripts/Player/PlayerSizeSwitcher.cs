@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerSizeSwitcher : MonoBehaviour
 {
     enum Size { Tiny = 0, Normal, Big, Count };
-    Size previousSize = Size.Tiny;
-    Size currentSize = Size.Tiny;
+    Size previousSize = Size.Normal;
+    Size currentSize = Size.Normal;
 
     [Header("Enable Size Randomizer")]
     [Tooltip("If true, player will change sizes according to variables below")]
@@ -19,7 +19,7 @@ public class PlayerSizeSwitcher : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ChangePlayerSize(Size.Normal);
+        ChangePlayerSize(Size.Tiny);
     }
 
     // Update is called once per frame
