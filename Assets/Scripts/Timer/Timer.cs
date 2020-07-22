@@ -8,7 +8,7 @@ public class Timer : MonoBehaviour
     [Header("Timer UI")]
     [SerializeField] Text timerText;
 
-    int timeElapsed = 60;
+    int timeElapsed = 0;
 
     // Start is called before the first frame update
     void Start()

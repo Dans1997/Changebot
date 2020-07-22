@@ -123,8 +123,7 @@ public class Player : MonoBehaviour
 
     private void Jump()
     {
-        Vector2 jumpVector = jumpForce * Vector2.up;
-        rigidBody.velocity = jumpVector;
+        rigidBody.velocity = new Vector2(rigidBody.velocity.x, jumpForce);
     }
 
     public void PlaySFX(AudioClip sfx) { if(sfx) audioSource.PlayOneShot(sfx); }
