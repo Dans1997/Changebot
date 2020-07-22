@@ -8,7 +8,7 @@ public class Timer : MonoBehaviour
     [Header("Timer UI")]
     [SerializeField] Text timerText;
 
-    int timeElapsed = 0;
+    int timeElapsed = 60;
 
     // Start is called before the first frame update
     void Start()
@@ -26,5 +26,19 @@ public class Timer : MonoBehaviour
         }
     }
 
+    // MM:SS
+    public string GetTime() 
+    {
+        if (timeElapsed < 60) return ("00:" + timeElapsed);
+        float t = timeElapsed;
+        float seconds = Mathf.Floor(t % 60);
+        t /= 60;
+        float minutes = Mathf.Floor(t % 60);
+
+        string minutesText = minutes < 10 ? "0" + minutes : minutes.ToString();
+        string secondsText = seconds < 10 ? "0" + seconds : seconds.ToString();
+
+        return minutesText + ":" + secondsText;
+    }
 
 }

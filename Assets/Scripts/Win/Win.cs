@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Win : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class Win : MonoBehaviour
         if (player)
         {
             winCanvas.enabled = true;
+            winCanvas.GetComponentInChildren<Text>().text = 
+            winCanvas.GetComponentInChildren<Text>().text = "Time: " + FindObjectOfType<Timer>().GetTime();
             player.enabled = false;
             player.GetComponent<Rigidbody2D>().velocity = new Vector2(0,0);
             FindObjectOfType<MusicPlayer>().ChangeToWinMusic();
