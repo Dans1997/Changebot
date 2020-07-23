@@ -38,7 +38,12 @@ public class EnemyHealth : MonoBehaviour
     {
         if (hitsTaken < maxHits) return;
         GetComponent<Animator>().SetTrigger("deathTrigger");
-        GetComponent<BoxCollider2D>().enabled = false;
+
+        CircleCollider2D circleCollider = GetComponent<CircleCollider2D>();
+        if(circleCollider) circleCollider.enabled = false;
+        else GetComponent<BoxCollider2D>().enabled = false;
+
+        GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, 0);
         Destroy(gameObject, 0.5f);
     }
 }

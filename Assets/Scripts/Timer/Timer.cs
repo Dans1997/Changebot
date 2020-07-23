@@ -9,6 +9,7 @@ public class Timer : MonoBehaviour
     [SerializeField] Text timerText;
 
     int timeElapsed = 0;
+    bool isTimerEnabled = true;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,7 @@ public class Timer : MonoBehaviour
     {
         while(true) 
         {
+            if (!isTimerEnabled) yield return null;
             timerText.text = timeElapsed.ToString();
             yield return new WaitForSeconds(1f);
             timeElapsed++;

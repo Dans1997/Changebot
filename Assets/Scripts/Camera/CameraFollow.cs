@@ -13,6 +13,9 @@ public class CameraFollow : MonoBehaviour
     [SerializeField] GameObject followObject = null;
     [SerializeField] float cameraOrthoSize = 4.5f;
 
+    [Header("Camera Bounds")]
+    [SerializeField] float minXPos, maxXPos, minYPos, maxYPos;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,9 +35,17 @@ public class CameraFollow : MonoBehaviour
         if (Mathf.Abs(xDiff) >= threshold.x) newCameraPosition.x = followPos.x;
         if (Mathf.Abs(yDiff) >= threshold.y) newCameraPosition.y = followPos.y;
 
+        // Apply Camera Bounds
+        newCameraPosition = new Vector3(
+            Mathf.Clamp(newCameraPosition.x, minXPos, maxXPos), 
+            Mathf.Clamp(newCameraPosition.y, minYPos, maxYPos),
+            -10
+        );
+
         // Outputs the highest speed
         float followObjXSpeed = Mathf.Abs(followObjectBody.velocity.x);
         float moveSpeed = followObjXSpeed > defaultFollowSpeed ? followObjXSpeed : defaultFollowSpeed;
+        if (followObjXSpeed <= Mathf.Epsilon) moveSpeed = 8f;
 
         transform.position = Vector3.MoveTowards(transform.position, newCameraPosition, moveSpeed * Time.deltaTime);
     }
@@ -57,8 +68,12 @@ public class CameraFollow : MonoBehaviour
     // See Threshold in Editor Mode
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.white;
+        Gizmos.color = Color.red;
         Vector2 border = CalculateThreshold();
         Gizmos.DrawWireCube(transform.position, new Vector3(border.x * 2, border.y * 2, 1));
+        Gizmos.DrawLine(new Vector3(minXPos, minYPos, 0), new Vector3(minXPos, maxYPos, 0));
+        Gizmos.DrawLine(new Vector3(maxXPos, minYPos, 0), new Vector3(maxXPos, maxYPos, 0));
+        Gizmos.DrawLine(new Vector3(maxXPos, minYPos, 0), new Vector3(minXPos, minYPos, 0));
+        Gizmos.DrawLine(new Vector3(maxXPos, maxYPos, 0), new Vector3(minXPos, maxYPos, 0));
     }
 }

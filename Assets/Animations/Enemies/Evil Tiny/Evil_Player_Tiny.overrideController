@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Evil_Player_Tiny
+  m_Controller: {fileID: 9100000, guid: 5b5a547397b5c5a4a97441dfa994365f, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: a330f598dc0212048b28ac6294dba272, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: ca2bb68ca5eaf984e88432f45580b78a, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 82806f4a9ccb5ae4b9269ed22825dd58, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 85d878682932c5d49bf3803558f15d52, type: 2}
