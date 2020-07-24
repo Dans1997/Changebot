@@ -19,11 +19,11 @@ public class SceneLoader : MonoBehaviour
         SceneManager.LoadScene(currentSceneIndex + 1);
     }
 
-    // Game Over Scene Will Always Be The First One
+    // Game Over Scene Will Always Be 1
     public void LoadTitleScreen()
     {
         Debug.Log("Loading Title Screen");
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     // Game Over Scene Will Always Be The Last One

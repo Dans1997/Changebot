@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: e0ee7cf5c878b164388fd105750e53fa
+guid: 4f344bb184008794582625192b30d738
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -339382251699944254
-    second: Player_Idle_Big_0
+      213: 3161260759071646212
+    second: idlegrande_0
   - first:
-      213: -6482070449315342328
-    second: Player_Idle_Big_1
+      213: -2737234076114845208
+    second: idlegrande_1
   - first:
-      213: 3497714137638965406
-    second: Player_Idle_Big_2
+      213: -1566694492737700500
+    second: idlegrande_2
   - first:
-      213: -4681806866480087132
-    second: Player_Idle_Big_3
+      213: -1723848461725786779
+    second: idlegrande_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -101,7 +101,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player_Idle_Big_0
+      name: idlegrande_0
       rect:
         serializedVersion: 2
         x: 0
@@ -109,20 +109,20 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c44a54e3a54a4bf0800000000000000
-      internalID: -339382251699944254
+      spriteID: 402e8da49ed0fdb20800000000000000
+      internalID: 3161260759071646212
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Idle_Big_1
+      name: idlegrande_1
       rect:
         serializedVersion: 2
         x: 48
@@ -130,20 +130,20 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8089083154f0b06a0800000000000000
-      internalID: -6482070449315342328
+      spriteID: 8e1841a3c14630ad0800000000000000
+      internalID: -2737234076114845208
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Idle_Big_2
+      name: idlegrande_2
       rect:
         serializedVersion: 2
         x: 96
@@ -151,20 +151,20 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e9015dbf9706a8030800000000000000
-      internalID: 3497714137638965406
+      spriteID: c6dfec8d8abf14ae0800000000000000
+      internalID: -1566694492737700500
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Idle_Big_3
+      name: idlegrande_3
       rect:
         serializedVersion: 2
         x: 144
@@ -172,14 +172,14 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4af3870d571e60fb0800000000000000
-      internalID: -4681806866480087132
+      spriteID: 56d1b3815f8a318e0800000000000000
+      internalID: -1723848461725786779
       vertices: []
       indices: 
       edges: []

@@ -1113,12 +1113,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 237327dced6446b47b497fc35a4b0c5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHits: 3
+  maxHits: 999
   hearts:
-  - {fileID: 21300000, guid: 8606eb765b6e2624f81794b9e5026179, type: 3}
-  - {fileID: 21300000, guid: 029397c0c7dcc15439fdb45f4d52a17a, type: 3}
-  - {fileID: 21300000, guid: 43ccfc367f4a9c54ea73ffbd36055007, type: 3}
-  - {fileID: 21300000, guid: d34fc7274e846754c93657ccb0940bbe, type: 3}
+  - {fileID: 21300000, guid: 6061a73853dec03418a250493f002c67, type: 3}
   canvasHearts: {fileID: 667164089}
   gameOverCanvas: {fileID: 1616570915}
   damageSFX: {fileID: 8300000, guid: 05a2a809cfbdc264db86bf7896114dc4, type: 3}
@@ -1264,7 +1261,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.2501211, y: 2.0511055}
+  m_Size: {x: 1.2501211, y: 2}
   m_EdgeRadius: 0
 --- !u!50 &723974654
 Rigidbody2D:
@@ -1278,7 +1275,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10000
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -1870,10 +1867,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 237327dced6446b47b497fc35a4b0c5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHits: 3
+  maxHits: 1
   hearts:
-  - {fileID: 21300000, guid: 8606eb765b6e2624f81794b9e5026179, type: 3}
-  - {fileID: 21300000, guid: 029397c0c7dcc15439fdb45f4d52a17a, type: 3}
   - {fileID: 21300000, guid: 43ccfc367f4a9c54ea73ffbd36055007, type: 3}
   - {fileID: 21300000, guid: d34fc7274e846754c93657ccb0940bbe, type: 3}
   canvasHearts: {fileID: 667164089}
@@ -7583,31 +7578,6 @@ PrefabInstance:
       propertyPath: followObject
       value: 
       objectReference: {fileID: 1815585193}
-    - target: {fileID: 3780461206124560766, guid: 9e212aae2d392e64fbb7e57f2ef37383,
-        type: 3}
-      propertyPath: defaultFollowSpeed
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3780461206124560766, guid: 9e212aae2d392e64fbb7e57f2ef37383,
-        type: 3}
-      propertyPath: minXPos
-      value: -11
-      objectReference: {fileID: 0}
-    - target: {fileID: 3780461206124560766, guid: 9e212aae2d392e64fbb7e57f2ef37383,
-        type: 3}
-      propertyPath: maxXPos
-      value: 125
-      objectReference: {fileID: 0}
-    - target: {fileID: 3780461206124560766, guid: 9e212aae2d392e64fbb7e57f2ef37383,
-        type: 3}
-      propertyPath: minYPos
-      value: -2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3780461206124560766, guid: 9e212aae2d392e64fbb7e57f2ef37383,
-        type: 3}
-      propertyPath: maxYPos
-      value: 6.5
-      objectReference: {fileID: 0}
     - target: {fileID: 3780461206167795968, guid: 9e212aae2d392e64fbb7e57f2ef37383,
         type: 3}
       propertyPath: m_Name

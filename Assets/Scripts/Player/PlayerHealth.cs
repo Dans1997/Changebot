@@ -19,6 +19,11 @@ public class PlayerHealth : MonoBehaviour
 
     int hitsTaken = 0;
 
+    void OnEnable()
+    {
+        HandleHealthUI();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
