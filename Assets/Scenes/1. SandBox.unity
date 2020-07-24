@@ -336,6 +336,9 @@ MonoBehaviour:
   isRandomizerEnabled: 1
   randomizeMaxTime: 6
   cameraFollow: {fileID: 3780461206124560766}
+  changeToTinySFX: {fileID: 8300000, guid: c1c03c88894f98c4992aa405ce12d86a, type: 3}
+  changeToNormalSFX: {fileID: 8300000, guid: 6a26d46086f9ea846a6a10e6550900b0, type: 3}
+  changeToBigSFX: {fileID: 8300000, guid: dbd230565a1f8614cb93b1ef17b3a92e, type: 3}
 --- !u!1 &533019598
 GameObject:
   m_ObjectHideFlags: 0

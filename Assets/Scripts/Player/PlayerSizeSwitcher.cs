@@ -4,17 +4,22 @@ using UnityEngine;
 
 public class PlayerSizeSwitcher : MonoBehaviour
 {
-    enum Size { Tiny = 0, Normal, Big, Count };
-    Size previousSize = Size.Normal;
-    Size currentSize = Size.Normal;
-
     [Header("Enable Size Randomizer")]
     [Tooltip("If true, player will change sizes according to variables below")]
     [SerializeField]  bool isRandomizerEnabled = false;
     [SerializeField] float randomizeMaxTime = 6f;
+    [SerializeField] CameraFollow cameraFollow;
+
+    [Header("SFXs")]
+    [SerializeField] AudioClip changeToTinySFX;
+    [SerializeField] AudioClip changeToNormalSFX;
+    [SerializeField] AudioClip changeToBigSFX;
+
+    enum Size { Tiny = 0, Normal, Big, Count };
+    Size previousSize = Size.Normal;
+    Size currentSize = Size.Normal;
     float randomizeCounter = 0f;
 
-    [SerializeField] CameraFollow cameraFollow;
 
     // Start is called before the first frame update
     void Start()
@@ -54,6 +59,23 @@ public class PlayerSizeSwitcher : MonoBehaviour
             playerToBeActivated.gameObject.SetActive(true);
             playerToBeActivated.transform.position = lastPlayerPosition;
             cameraFollow.SetFollowObject(playerToBeActivated.gameObject);
+        }
+
+        // Handle SFXs
+        switch (newSize)
+        {
+            case Size.Tiny:
+                AudioSource.PlayClipAtPoint(changeToTinySFX, Camera.main.transform.position, .5f);
+                break;
+            case Size.Normal:
+                AudioSource.PlayClipAtPoint(changeToNormalSFX, Camera.main.transform.position);
+                break;
+            case Size.Big:
+                AudioSource.PlayClipAtPoint(changeToBigSFX, Camera.main.transform.position);
+                break;
+            default:
+                Debug.LogError("Invalid Size");
+                break;
         }
     }
 
