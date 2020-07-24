@@ -49,6 +49,15 @@ public class PlayerHealth : MonoBehaviour
         GetComponent<Player>().PlaySFX(damageSFX);
     }
 
+    public void KillPlayer()
+    {
+        gameOverCanvas.enabled = true;
+        FindObjectOfType<PlayerSizeSwitcher>().enabled = false;
+        GetComponent<Player>().enabled = false;
+        FindObjectOfType<MusicPlayer>().ChangeToLoseMusic();
+        canvasHearts.sprite = hearts[hearts.Length - 1];
+    }
+
     private void HandleHealthUI()
     {
         if(hitsTaken < hearts.Length)
@@ -58,11 +67,7 @@ public class PlayerHealth : MonoBehaviour
     private void HandleDeath()
     {
         if (hitsTaken < maxHits) return;
-        // Death
-        gameOverCanvas.enabled = true;
-        GetComponent<Player>().enabled = false;
-        FindObjectOfType<MusicPlayer>().ChangeToLoseMusic();
-        canvasHearts.sprite = hearts[hearts.Length - 1];
+        KillPlayer();
     }
 
 }
