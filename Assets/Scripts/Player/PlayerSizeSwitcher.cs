@@ -46,6 +46,7 @@ public class PlayerSizeSwitcher : MonoBehaviour
 
         int playerIndex = 0;
         Vector2 lastPlayerPosition = transform.position;
+        Debug.Log(lastPlayerPosition);
         Transform playerToBeActivated = null;
 
         // Iterate through all child objects
@@ -56,7 +57,9 @@ public class PlayerSizeSwitcher : MonoBehaviour
             if ((int)currentSize == playerIndex) playerToBeActivated = player;
             playerIndex++;
         }
-        
+
+        if (newSize == Size.Big) lastPlayerPosition.y += 1f;
+
         if (playerToBeActivated)
         {
             EnemyAI.player = playerToBeActivated;
