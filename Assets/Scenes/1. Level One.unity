@@ -5380,6 +5380,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Evil Tiny (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1801411244297355824, guid: a9e640f9007793842be7449f4019a967,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1801411244297355849, guid: a9e640f9007793842be7449f4019a967,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6016,7 +6021,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9194ea39499c4b34cbab4c5d83787116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isRandomizerEnabled: 1
+  isRandomizerEnabled: 0
   randomizeMaxTime: 6
   cameraFollow: {fileID: 3780461206124560766}
   changeToTinySFX: {fileID: 8300000, guid: c1c03c88894f98c4992aa405ce12d86a, type: 3}
@@ -10442,6 +10447,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Evil Tiny (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1801411244297355824, guid: a9e640f9007793842be7449f4019a967,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1801411244297355849, guid: a9e640f9007793842be7449f4019a967,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12880,6 +12890,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Evil Tiny (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1801411244297355824, guid: a9e640f9007793842be7449f4019a967,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1801411244297355849, guid: a9e640f9007793842be7449f4019a967,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13810,8 +13825,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.55210406, y: 1}
+  m_Offset: {x: 0, y: 0.0032464266}
+  m_Size: {x: 0.55210406, y: 0.99350715}
   m_Direction: 0
 --- !u!50 &1006785278
 Rigidbody2D:
@@ -19703,6 +19718,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spectre (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4721014425638577149, guid: 6f8e8d4f5b0f23042b3f27cf1270cbc4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f8e8d4f5b0f23042b3f27cf1270cbc4, type: 3}
 --- !u!4 &1426716331 stripped
@@ -22487,6 +22507,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Spectre (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4721014425638577149, guid: 6f8e8d4f5b0f23042b3f27cf1270cbc4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f8e8d4f5b0f23042b3f27cf1270cbc4, type: 3}
@@ -28237,8 +28262,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.6098435, y: 1.3333334}
+  m_Offset: {x: 0, y: 0.0046423674}
+  m_Size: {x: 0.6098435, y: 1.3240488}
   m_Direction: 0
 --- !u!50 &1815585199
 Rigidbody2D:

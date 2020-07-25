@@ -263,7 +263,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ef78d4979b6b5d4a8118258bb07e75a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 7
+  minRange: 0.25
+  maxRange: 7
   moveSpeed: 2
   engageSFX: {fileID: 8300000, guid: 2bb4de8a2b89c2749b19691c50be6070, type: 3}
   disEngageSFX: {fileID: 8300000, guid: de05219f58cee08418c7875b4cb7eb6c, type: 3}

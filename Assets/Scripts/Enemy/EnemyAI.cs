@@ -6,7 +6,8 @@ public class EnemyAI : MonoBehaviour
     public static Transform player;
 
     [Header("Enemy Variables")]
-    [SerializeField] float range;
+    [SerializeField] float minRange = .3f;
+    [SerializeField] float maxRange = 5f;
 	[SerializeField] float moveSpeed;
 
     [Header("SFXs")]
@@ -35,9 +36,10 @@ public class EnemyAI : MonoBehaviour
     void FixedUpdate()
     {
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+        float distanceToPlayerX = Mathf.Abs(transform.position.x - player.position.x);
         bool previousIsChasing = isChasing;
 
-        if (distanceToPlayer < range)
+        if (distanceToPlayerX > minRange && distanceToPlayer < maxRange)
         {
             FollowPlayer();
         } 
@@ -74,7 +76,9 @@ public class EnemyAI : MonoBehaviour
     // See Enemy Range in Editor Mode
     private void OnDrawGizmos()
     {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, maxRange);
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, range);
+        Gizmos.DrawWireSphere(transform.position, maxRange);
     }
 }
