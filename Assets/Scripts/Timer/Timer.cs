@@ -11,9 +11,13 @@ public class Timer : MonoBehaviour
     int timeElapsed = 0;
     bool isTimerEnabled = true;
 
+    // Cached Components
+    PlayerSizeSwitcher playerSizeSwitcher;
+
     // Start is called before the first frame update
     void Start()
     {
+        playerSizeSwitcher = GetComponent<PlayerSizeSwitcher>();
         StartCoroutine(CountTime());
     }
 
@@ -25,11 +29,12 @@ public class Timer : MonoBehaviour
             timerText.text = timeElapsed.ToString();
             yield return new WaitForSeconds(1f);
             timeElapsed++;
+            playerSizeSwitcher.HandleSizeRandomizer(timeElapsed);
         }
     }
 
     // MM:SS
-    public string GetTime() 
+    public string GetTimeString() 
     {
         if (timeElapsed < 60) return ("00:" + timeElapsed);
         float t = timeElapsed;

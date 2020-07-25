@@ -18,6 +18,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] AudioClip damageSFX;
 
     int hitsTaken = 0;
+    bool isDead = false;
 
     void OnEnable()
     {
@@ -51,11 +52,14 @@ public class PlayerHealth : MonoBehaviour
 
     public void KillPlayer()
     {
+        if (isDead) return;
         gameOverCanvas.enabled = true;
-        FindObjectOfType<PlayerSizeSwitcher>().enabled = false;
+        FindObjectOfType<PlayerSizeSwitcher>().gameObject.SetActive(false);
+        //FindObjectOfType<Timer>().enabled = false;
         GetComponent<Player>().enabled = false;
         FindObjectOfType<MusicPlayer>().ChangeToLoseMusic();
         canvasHearts.sprite = hearts[hearts.Length - 1];
+        isDead = true;
     }
 
     private void HandleHealthUI()
