@@ -91,7 +91,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3780461206167796220}
-  - component: {fileID: 3780461206167795970}
   - component: {fileID: 3780461206167795971}
   - component: {fileID: 3780461206167795969}
   - component: {fileID: 3780461206124560766}
@@ -117,26 +116,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3780461206167795970
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3780461206167795968}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a160d838ff8b4b4693ac20007e008c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AssetsPPU: 20
-  m_RefResolutionX: 320
-  m_RefResolutionY: 180
-  m_UpscaleRT: 0
-  m_PixelSnapping: 0
-  m_CropFrameX: 1
-  m_CropFrameY: 1
-  m_StretchFill: 0
 --- !u!20 &3780461206167795971
 Camera:
   m_ObjectHideFlags: 0
@@ -164,7 +143,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 50
+  orthographic size: 4.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -205,6 +184,6 @@ MonoBehaviour:
   followObject: {fileID: 0}
   cameraOrthoSize: 4.5
   minXPos: -11
-  maxXPos: 125
-  minYPos: -2.5
+  maxXPos: 310
+  minYPos: -3
   maxYPos: 6.5
