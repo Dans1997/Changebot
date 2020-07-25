@@ -23,6 +23,12 @@ public class EnemyHealth : MonoBehaviour
         
     }
 
+    public void TakeDamage(int damage)
+    {
+        hitsTaken += damage;
+        HandleDeath();
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         PlayerHealth playerHealth= other.gameObject.GetComponent<PlayerHealth>();
@@ -38,6 +44,8 @@ public class EnemyHealth : MonoBehaviour
     {
         if (hitsTaken < maxHits) return;
         GetComponent<Animator>().SetTrigger("deathTrigger");
+
+        GetComponent<AudioSource>().PlayOneShot(deathSFX, 1f);
 
         CircleCollider2D circleCollider = GetComponent<CircleCollider2D>();
         if(circleCollider) circleCollider.enabled = false;

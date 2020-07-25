@@ -127,4 +127,6 @@ public class Player : MonoBehaviour
     }
 
     public void PlaySFX(AudioClip sfx) { if(sfx) audioSource.PlayOneShot(sfx); }
+
+    public bool IsFacingRight() { return isFacingRight; }
 }
