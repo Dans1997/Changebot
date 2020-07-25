@@ -6016,7 +6016,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9194ea39499c4b34cbab4c5d83787116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isRandomizerEnabled: 0
+  isRandomizerEnabled: 1
   randomizeMaxTime: 6
   cameraFollow: {fileID: 3780461206124560766}
   changeToTinySFX: {fileID: 8300000, guid: c1c03c88894f98c4992aa405ce12d86a, type: 3}
@@ -33001,6 +33001,11 @@ PrefabInstance:
       propertyPath: followObject
       value: 
       objectReference: {fileID: 1815585193}
+    - target: {fileID: 3780461206124560766, guid: 9e212aae2d392e64fbb7e57f2ef37383,
+        type: 3}
+      propertyPath: followOffset.y
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3780461206167795968, guid: 9e212aae2d392e64fbb7e57f2ef37383,
         type: 3}
       propertyPath: m_Name
