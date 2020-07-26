@@ -33,7 +33,7 @@ public class PlayerSizeSwitcher : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        HandleKeyInput();
+        //HandleKeyInput();
     }
 
     public bool IsPlayerBig() { return currentSize == Size.Big; }
@@ -85,7 +85,7 @@ public class PlayerSizeSwitcher : MonoBehaviour
         }
     }
 
-    // Control Powers Are Controlled By Keys (FOR NOW)
+    // For Debugging
     private void HandleKeyInput()
     {
         if (Input.GetKeyDown(KeyCode.T)) ChangePlayerSize(Size.Tiny);
