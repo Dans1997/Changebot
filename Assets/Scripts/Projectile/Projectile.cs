@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    [Header("Laser Specs")]
+    [Header("Projectile Specs")]
     [SerializeField] float projectileSpeed = 10f;
+    [SerializeField] float lifeTime = 5f;
     [SerializeField] int damage = 1;
 
     [Header("Hit SFX")]
@@ -21,6 +22,7 @@ public class Projectile : MonoBehaviour
         rigidBody = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         Fire();
+        Destroy(gameObject, lifeTime);
     }
 
     //TODO: Make projectile hit whatever 

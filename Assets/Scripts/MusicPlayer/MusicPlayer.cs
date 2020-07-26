@@ -21,6 +21,7 @@ public class MusicPlayer : MonoBehaviour
 
     public void ChangeToLoseMusic()
     {
+        audioSource.loop = false;
         ChangeMusic(loseMusic);
     }
 

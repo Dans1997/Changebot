@@ -7,6 +7,8 @@ public class Win : MonoBehaviour
 {
     [SerializeField] Canvas winCanvas;
 
+    bool hasWon = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,9 +17,11 @@ public class Win : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (hasWon) return;
         Player player = other.gameObject.GetComponent<Player>();
         if (player)
         {
+            hasWon = true;
             winCanvas.enabled = true;
             winCanvas.GetComponentInChildren<Text>().text = 
             winCanvas.GetComponentInChildren<Text>().text = "Time: " + FindObjectOfType<Timer>().GetTimeString();

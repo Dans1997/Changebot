@@ -281,7 +281,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minRange: 0.25
-  maxRange: 7
+  maxRange: 6
   moveSpeed: 5
   engageSFX: {fileID: 0}
   disEngageSFX: {fileID: 0}

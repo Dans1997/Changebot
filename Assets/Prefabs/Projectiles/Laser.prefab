@@ -167,6 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileSpeed: 700
+  lifeTime: 0.75
   damage: 1
   hitSFX: {fileID: 8300000, guid: 29efaee92054adb4c9b4563814bd0375, type: 3}
 --- !u!82 &1703985292808527907

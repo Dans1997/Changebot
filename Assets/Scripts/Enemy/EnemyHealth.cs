@@ -10,27 +10,18 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] AudioClip deathSFX;
 
     int hitsTaken = 0;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    bool isDead = false;
 
     public void TakeDamage(int damage)
     {
+        if (isDead) return;
         hitsTaken += damage;
         HandleDeath();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (isDead) return;
         PlayerHealth playerHealth= other.gameObject.GetComponent<PlayerHealth>();
         if (playerHealth)
         {
@@ -43,15 +34,17 @@ public class EnemyHealth : MonoBehaviour
     private void HandleDeath()
     {
         if (hitsTaken < maxHits) return;
+        isDead = true;
         GetComponent<Animator>().SetTrigger("deathTrigger");
 
         GetComponent<AudioSource>().PlayOneShot(deathSFX, 1f);
 
         CircleCollider2D circleCollider = GetComponent<CircleCollider2D>();
         if(circleCollider) circleCollider.enabled = false;
-        else GetComponent<BoxCollider2D>().enabled = false;
+        
+        GetComponent<BoxCollider2D>().enabled = false;
 
-        GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, 0);
+        GetComponent<Rigidbody2D>().isKinematic = true;
         Destroy(gameObject, 0.5f);
     }
 }
