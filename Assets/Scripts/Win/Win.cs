@@ -27,7 +27,10 @@ public class Win : MonoBehaviour
             winCanvas.GetComponentInChildren<Text>().text = "Time: " + FindObjectOfType<Timer>().GetTimeString();
             player.enabled = false;
             player.GetComponent<Rigidbody2D>().velocity = new Vector2(0,0);
+            FindObjectOfType<Timer>().StopAllCoroutines();
             FindObjectOfType<MusicPlayer>().ChangeToWinMusic();
+            FindObjectOfType<PlayerSizeSwitcher>().DeactivateSwitcher();
+            Destroy(FindObjectOfType<CheckPointMaster>().gameObject);
         }
     }
 

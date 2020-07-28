@@ -27,6 +27,7 @@ public class MusicPlayer : MonoBehaviour
 
     public void ChangeToWinMusic()
     {
+        audioSource.loop = false;
         ChangeMusic(winMusic);
     }
 
