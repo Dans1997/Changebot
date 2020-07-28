@@ -14759,6 +14759,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1801411244297355851, guid: a9e640f9007793842be7449f4019a967,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.050056696
+      objectReference: {fileID: 0}
+    - target: {fileID: 1801411244297355851, guid: a9e640f9007793842be7449f4019a967,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.5500567
+      objectReference: {fileID: 0}
     - target: {fileID: 1801411244297355854, guid: a9e640f9007793842be7449f4019a967,
         type: 3}
       propertyPath: m_FlipX
@@ -37026,6 +37036,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Main Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 3780461206167795971, guid: 9e212aae2d392e64fbb7e57f2ef37383,
+        type: 3}
+      propertyPath: orthographic size
+      value: 5.7
       objectReference: {fileID: 0}
     - target: {fileID: 3780461206167796220, guid: 9e212aae2d392e64fbb7e57f2ef37383,
         type: 3}
