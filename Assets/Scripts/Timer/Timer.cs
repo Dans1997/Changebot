@@ -5,11 +5,12 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    [Header("Timer UI")]
-    [SerializeField] Text timerText;
 
     int timeElapsed = 0;
     bool isTimerEnabled = true;
+
+    [Header("Timer UI")]
+    [SerializeField] Text timerText;
 
     // Cached Components
     PlayerSizeSwitcher playerSizeSwitcher;
@@ -32,6 +33,10 @@ public class Timer : MonoBehaviour
             playerSizeSwitcher.HandleSizeRandomizer(timeElapsed);
         }
     }
+
+    public void StopTimer() { isTimerEnabled = false; }
+
+    public void ResetTimer() { timeElapsed = 0; }
 
     // MM:SS
     public string GetTimeString() 

@@ -26,6 +26,7 @@ public class PlayerSizeSwitcher : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        transform.position = FindObjectOfType<CheckPointMaster>().GetCheckPoint();
         audioSource = GetComponent<AudioSource>();
         ChangePlayerSize(Size.Tiny);
     }
@@ -36,6 +37,7 @@ public class PlayerSizeSwitcher : MonoBehaviour
         //HandleKeyInput();
     }
 
+    public void DeactivateSwitcher() { isRandomizerEnabled = false; }
     public bool IsPlayerBig() { return currentSize == Size.Big; }
 
     private void ChangePlayerSize(Size newSize)
@@ -57,7 +59,8 @@ public class PlayerSizeSwitcher : MonoBehaviour
             playerIndex++;
         }
 
-        if (newSize == Size.Big) lastPlayerPosition.y += 1f;
+        if (newSize == Size.Normal) lastPlayerPosition.y += 0.5f;
+        else if (newSize == Size.Big) lastPlayerPosition.y += 1f;
 
         if (playerToBeActivated)
         {

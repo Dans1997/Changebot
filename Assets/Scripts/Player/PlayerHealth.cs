@@ -11,8 +11,8 @@ public class PlayerHealth : MonoBehaviour
     [Header("Health Canvas Instance")]
     [SerializeField] Image canvasHearts = null;
 
-    [Header("Game Over Canvas Instance")]
-    [SerializeField] Canvas gameOverCanvas;
+    [Header("Game Over Canvas")]
+    [SerializeField] Canvas gameOverCanvas = null;
 
     [Header("SFXs")]
     [SerializeField] AudioClip damageSFX;
@@ -28,8 +28,8 @@ public class PlayerHealth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        HandleHealthUI();
         gameOverCanvas.enabled = false;
+        HandleHealthUI();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -54,10 +54,11 @@ public class PlayerHealth : MonoBehaviour
     {
         if (isDead) return;
         gameOverCanvas.enabled = true;
-        FindObjectOfType<PlayerSizeSwitcher>().gameObject.SetActive(false);
-        //FindObjectOfType<Timer>().enabled = false;
-        GetComponent<Player>().enabled = false;
+        FindObjectOfType<Timer>().StopAllCoroutines();
         FindObjectOfType<MusicPlayer>().ChangeToLoseMusic();
+        FindObjectOfType<PlayerSizeSwitcher>().DeactivateSwitcher();
+        GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<Player>().enabled = false;
         canvasHearts.sprite = hearts[hearts.Length - 1];
         isDead = true;
     }

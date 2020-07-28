@@ -26,12 +26,6 @@ public class SceneLoader : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
-    // Game Over Scene Will Always Be The Last One
-    public void LoadGameOverScreen()
-    {
-        SceneManager.LoadScene(SceneManager.sceneCountInBuildSettings - 1);
-    }
-
     public void ExitGame()
     {
         Debug.Log("Quitting Application.");

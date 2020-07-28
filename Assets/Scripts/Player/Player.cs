@@ -34,6 +34,7 @@ public class Player : MonoBehaviour
     Animator animator = null;
     SpriteRenderer spriteRenderer = null;
     AudioSource audioSource = null;
+    CheckPointMaster checkPointMaster = null;
 
     // Start is called before the first frame update
     void Start()
@@ -126,7 +127,7 @@ public class Player : MonoBehaviour
         rigidBody.velocity = new Vector2(rigidBody.velocity.x, jumpForce);
     }
 
-    public void PlaySFX(AudioClip sfx) { if(sfx) audioSource.PlayOneShot(sfx); }
+    public void PlaySFX(AudioClip sfx) { if(sfx && audioSource) audioSource.PlayOneShot(sfx); }
 
     public bool IsFacingRight() { return isFacingRight; }
 }

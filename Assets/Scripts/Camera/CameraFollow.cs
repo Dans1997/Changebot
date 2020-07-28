@@ -19,6 +19,7 @@ public class CameraFollow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        transform.position = FindObjectOfType<CheckPointMaster>().GetCheckPoint();
         threshold = CalculateThreshold();
         followObject = FindObjectOfType<Player>().gameObject;
         followObjectBody = followObject.GetComponent<Rigidbody2D>();
