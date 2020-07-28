@@ -39,7 +39,11 @@ public class Timer : MonoBehaviour
 
     public void ResetTimer() { timeElapsed = 0; }
 
-    public int GetTimeElapsed() { return ((timeElapsed/6) + 1)*6; }
+    public int GetTimeElapsed() 
+    {
+        int sizeChangeTime = playerSizeSwitcher.TIME_BETWEEN_SIZE_CHANGE;
+        return ((timeElapsed/sizeChangeTime) + 1) * sizeChangeTime; 
+    }
 
     // MM:SS
     public string GetTimeString() 

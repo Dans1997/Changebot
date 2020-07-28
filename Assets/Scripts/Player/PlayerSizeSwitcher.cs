@@ -7,7 +7,6 @@ public class PlayerSizeSwitcher : MonoBehaviour
     [Header("Enable Size Randomizer")]
     [Tooltip("If true, player will change sizes according to variables below")]
     [SerializeField]  bool isRandomizerEnabled = false;
-    [SerializeField] int randomizeMaxTime = 6;
     [SerializeField] CameraFollow cameraFollow;
 
     [Header("SFXs")]
@@ -16,9 +15,13 @@ public class PlayerSizeSwitcher : MonoBehaviour
     [SerializeField] AudioClip changeToBigSFX;
     [SerializeField] AudioClip aboutToChangeSFX;
 
+
+    public int TIME_BETWEEN_SIZE_CHANGE = 6;
+
     enum Size { Tiny = 0, Normal, Big, Count };
     Size previousSize = Size.Normal;
     Size currentSize = Size.Normal;
+    int randomizeTime;
 
     // Cached Components
     AudioSource audioSource;
@@ -26,6 +29,7 @@ public class PlayerSizeSwitcher : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        randomizeTime = TIME_BETWEEN_SIZE_CHANGE;
         transform.position = FindObjectOfType<CheckPointMaster>().GetCheckPoint();
         audioSource = GetComponent<AudioSource>();
         ChangePlayerSize(Size.Tiny);
@@ -102,9 +106,9 @@ public class PlayerSizeSwitcher : MonoBehaviour
     {
         if (!isRandomizerEnabled) return;
 
-        if(timeElapsed % randomizeMaxTime == (randomizeMaxTime - 2)) audioSource.PlayOneShot(aboutToChangeSFX);
+        if(timeElapsed % randomizeTime == (randomizeTime - 2)) audioSource.PlayOneShot(aboutToChangeSFX);
 
-        if (timeElapsed % randomizeMaxTime == 0)
+        if (timeElapsed % randomizeTime == 0)
         {
             Size randomSize = currentSize;
 
