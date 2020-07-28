@@ -5,12 +5,11 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
+    [Header("Timer UI")]
+    [SerializeField] Text timerText;
 
     int timeElapsed = 0;
     bool isTimerEnabled = true;
-
-    [Header("Timer UI")]
-    [SerializeField] Text timerText;
 
     // Cached Components
     PlayerSizeSwitcher playerSizeSwitcher;
@@ -18,6 +17,8 @@ public class Timer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        CheckPointMaster checkPointMaster = FindObjectOfType<CheckPointMaster>();
+        if (checkPointMaster) timeElapsed = checkPointMaster.GetCheckPointTime();
         playerSizeSwitcher = GetComponent<PlayerSizeSwitcher>();
         StartCoroutine(CountTime());
     }
@@ -37,6 +38,8 @@ public class Timer : MonoBehaviour
     public void StopTimer() { isTimerEnabled = false; }
 
     public void ResetTimer() { timeElapsed = 0; }
+
+    public int GetTimeElapsed() { return ((timeElapsed/6) + 1)*6; }
 
     // MM:SS
     public string GetTimeString() 
